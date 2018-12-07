@@ -7,7 +7,7 @@ int n, f[mx + 233];
 char str[25];
 
 int main() {
-    n = 20;
+    n = 10;
     for (int s = 0; s < (1 << n); s++) {
         for (int i = 1; i < n; i++) {
             if ((s >> i & 1) == 1 && (s >> (i-1) & 1) == 0) {
@@ -26,22 +26,26 @@ int main() {
             }
         }
     }
-    // for (int s = 0; s < (1 << n); s++) {
-    //     int cu = s;
-    //     for (int i = 0; i < n; i++) {
-    //         printf("%d", cu & 1);
-    //         cu >>= 1;
-    //     }
-    //     printf(" %d\n", f[s]);
-    // }
-    int t;scanf("%d", &t);
-    while (t--) {
-        scanf("%s", str);
-        int m = strlen(str), tmp = 0;
-        for (int i = 0; i < m; i++) {
-            tmp = tmp * 2 + (str[m - i - 1] == 'o');
+    for (int s = 0; s < (1 << n); s++) {
+        int cu = s, hhh = 0;
+        for (int i = 0; i < n; i++) {
+            printf("%d", cu & 1);
+            if (cu & 1) hhh += i;
+            cu >>= 1;
         }
-        printf("%s\n", f[tmp] ? "Hou" : "Su");
+        printf("       %d %d\n", hhh%3, f[s]);
     }
+    // int t;scanf("%d", &t);
+    // while (t--) {
+    //     scanf("%s", str);
+    //     int m = strlen(str), tmp = 0;
+    //     int hhh = 0;
+    //     for (int i = 0; i < m; i++) {
+    //         tmp = tmp * 2 + (str[m - i - 1] == 'o');
+    //         hhh += i * (str[i] == 'o');
+    //     }
+    //     printf("(%d)\n", hhh % 3);
+    //     printf("%s\n", f[tmp] ? "Hou" : "Su");
+    // }
     return 0;
 }
