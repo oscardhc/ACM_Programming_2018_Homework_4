@@ -16,7 +16,7 @@ int main() {
             if (str[i] == '.') {
                 tmp = tmp + 1;
             } else {
-                cnt[tmp] ++;
+                cnt[tmp]++;
             }
         }
         for (int i = 1 ; i < m; i += 2) {

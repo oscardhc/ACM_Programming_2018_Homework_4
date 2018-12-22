@@ -7,7 +7,7 @@ const int inf = 0x3f3f3f3f;
 int n, w, ff, a[mx], ans = mx;
 int f[mx][105];
 
-inline int chk (int l) {
+inline int chk(int l) {
     memset(f, inf, sizeof f);
     int ret = inf;
     f[0][0] = 0;
